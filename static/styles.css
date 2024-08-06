@@ -1,0 +1,32 @@
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    /* Verteilung des Platzes zwischen Playern */
+}
+
+.player {
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    padding: 20px;
+    width: 45%;
+    /* Breite der Player */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.track {
+    margin-top: 10px;
+}
+
+h2 {
+    margin: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #333333;
+}

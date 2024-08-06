@@ -1,0 +1,67 @@
+{
+    "album": "So80S (So Eighties), Vol. 10 (Presented by Blank & Jones)",
+    "artist": "New Order",
+    "cues": [
+        {
+            "comment": "Cue 1",
+            "ms": 146
+        },
+        {
+            "comment": "Cue 1",
+            "ms": 146
+        },
+        {
+            "comment": "Cue 2",
+            "ms": 59040
+        },
+        {
+            "comment": "Cue 2",
+            "ms": 59040
+        },
+        {
+            "comment": "Cue 3",
+            "ms": 73760
+        },
+        {
+            "comment": "Cue 3",
+            "ms": 73760
+        },
+        {
+            "comment": "Cue 4",
+            "ms": 324040
+        },
+        {
+            "comment": "Cue 4",
+            "ms": 324040
+        },
+        {
+            "comment": "Cue 5",
+            "ms": 338760
+        },
+        {
+            "comment": "Cue 5",
+            "ms": 338760
+        },
+        {
+            "comment": "Cue 6",
+            "ms": 353486
+        },
+        {
+            "comment": "Cue 6",
+            "ms": 353486
+        }
+    ],
+    "duration": 448000,
+    "player": 1,
+    "source": {
+        "id": 7595,
+        "player": 1,
+        "slot": "SD_SLOT"
+    },
+    "tempo": 130.41,
+    "title": "Blue Monday (Original 12\" Version)",
+    "year": 2016,
+    "ms": 1722969292453,
+    "type": "track",
+    "version": 1
+}

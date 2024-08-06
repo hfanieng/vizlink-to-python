@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Track Übersicht</title>
+</head>
+
+<body>
+    <div class="container" id="track-container">
+        <div class="player" id="player1">
+            <h2>Player 1</h2>
+            <h3 class="name" id="device1">Device</h3>
+            <div class="track" id="track1"></div>
+        </div>
+
+        <div class="player" id="player2">
+            <h2>Player 2</h2>
+            <h3 class="name" id="device2">Device</h3>
+            <div class="name" id="device2"></div>
+            <div class="track" id="track2"></div>
+        </div>
+    </div>
+
+    <script>
+        async function fetchData() {
+            try {
+                const response = await fetch('/data');
+                const data = await response.json();
+                displayTracks(data);
+            } catch (error) {
+                console.error('Fehler beim Abrufen der Daten:', error);
+            }
+        }
+
+        function displayTracks(data) {
+            // Track-Daten von Player 1
+            if (data.track && data.track.player === 1) {
+                const trackInfo = `
+                    <p>Album: ${data.track.album}</p>
+                    <p>Artist: ${data.track.artist}</p>
+                    <p>Cues: ${JSON.stringify(data.track.cues)}</p>
+                    <p>Dauer: ${data.track.duration} ms</p>
+                    <p>Tempo: ${data.track.tempo} BPM</p>
+                    <p>Titel: ${data.track.title}</p>
+                    <p>Jahr: ${data.track.year}</p>
+                `;
+                document.getElementById('track1').innerHTML = trackInfo;
+            }
+
+            // Track-Daten von Player 2
+            if (data.track && data.track.player === 2) {
+                const trackInfo = `
+                    <p>Album: ${data.track.album}</p>
+                    <p>Artist: ${data.track.artist}</p>
+                    <p>Cues: ${JSON.stringify(data.track.cues)}</p>
+                    <p>Dauer: ${data.track.duration} ms</p>
+                    <p>Tempo: ${data.track.tempo} BPM</p>
+                    <p>Titel: ${data.track.title}</p>
+                    <p>Jahr: ${data.track.year}</p>
+                `;
+                document.getElementById('track2').innerHTML = trackInfo;
+            }
+        }
+
+        function displayDevices(data) {
+            // Gerätedaten anzeigen
+            devices.forEach((device, index) => {
+                const deviceInfo = `
+                    <p>Gerät ${index + 1}:</p>
+                    <p>Typ: ${device.name}</p>
+                    <p>Status: ${device.active}</p>
+                    <p>Player: ${device.player}</p>
+                    <!-- Weitere Geräteinformationen hier einfügen -->
+                `;
+                document.getElementById(`device${index + 1}`).innerHTML = deviceInfo;
+            });
+        }
+
+        // Daten alle 2 Sekunden abrufen
+        setInterval(fetchData, 2000);
+        fetchData(); // Sofortiger Aufruf beim Laden der Seite
+    </script>
+</body>
+
+</html>
