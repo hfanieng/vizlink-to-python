@@ -169,3 +169,4 @@ class Device {
 [4]:<https://de.wikipedia.org/wiki/Wehringhausen>
 [5]:<https://www.pioneerdj.com/-/media/pioneerdj/images/products/all-in-one-system/xdj-xz/xdj-xz_prm_top.png?h=1316&w=1792&hash=CDDC51D731D7571112C6D6AB25B04626>
 [license-link]: https://github.com/hfanieng/vizlink-to-python/blob/main/LICENSE
+# vizlink-to-python
