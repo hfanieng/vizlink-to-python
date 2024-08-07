@@ -47,6 +47,7 @@ All tests runs with the old but great [Pioneer XDJ-XZ][3] with ❤️ and 🤩 a
 
 This is a Python library for converting Data from a ProDJ-Link-Device via [Vizlink][1] to Python Objects.
 
+```
 vizlink-to-python/
 ├── __init__.py
 ├── data/
@@ -70,6 +71,7 @@ vizlink-to-python/
 │   ├── index.html
 ├── factory.py
 └── app.py
+```
 
 ## UML Diagrams - WORK IN PROGRESS! Not final
 
@@ -169,4 +171,5 @@ class Device {
 [4]:<https://de.wikipedia.org/wiki/Wehringhausen>
 [5]:<https://www.pioneerdj.com/-/media/pioneerdj/images/products/all-in-one-system/xdj-xz/xdj-xz_prm_top.png?h=1316&w=1792&hash=CDDC51D731D7571112C6D6AB25B04626>
 [license-link]: https://github.com/hfanieng/vizlink-to-python/blob/main/LICENSE
+
 # vizlink-to-python
