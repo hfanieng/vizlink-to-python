@@ -1,4 +1,10 @@
+---
+marp: true
+---
+
 # vizlink-to-python
+
+---
 
 ## Project description
 
@@ -6,6 +12,8 @@ This project utilizes [Vizlink][1] to read data from the ProDJLink network, tran
 
 > __Disclaimer__: This project is not affiliated with AlphaTheta/Pioneer DJ Corp. or its related companies in any way and has been developed independently. Vizlink to Python is licensed under the [MIT license][license-link]. The maintainers of this project are not liable for any damages to your data, as this is an experimental project.  
 >__Editor’s Warning__: Using any under-development tool like this should be tested very thoroughly before relying on it for your next big DJ set. There is also always a chance that Pioneer DJ could close the loopholes that allow this to work in a future firmware update to CDJs – so update with caution.
+
+---
 
 ## Table of contents
 
