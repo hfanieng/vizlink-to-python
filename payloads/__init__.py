@@ -1,7 +1,6 @@
-# Hier können Sie Ihren Code für das Modul "payloads" schreiben
-
-# my_project/payloads/__init__.py
+''' This file is used to import all the payloads in the payloads directory. '''
 from .base import BasePayload
+from .art import Art
 from .beat import Beat
 from .device import Device
 from .error import Error
