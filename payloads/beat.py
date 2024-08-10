@@ -40,5 +40,5 @@ class Beat (BasePayload):
                 f'Type:{self.type_iterable}, '
                 f'Beat:{self.beat}, '
                 f'Master:{self.master}, '
-                f'Onair:{self.onair}, '
+                f'On Air:{self.onair}, '
                 f'Version:{self.version})')

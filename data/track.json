@@ -1,23 +1,23 @@
 {
-    "album": "Mothership",
-    "artist": "Led Zeppelin",
+    "album": "The Best of Mot\u00f6rhead",
+    "artist": "Mot\u00f6rhead",
     "cues": [
         {
             "comment": "",
-            "ms": 626
+            "ms": 1206
         }
     ],
-    "duration": 476000,
+    "duration": 167000,
     "player": 1,
     "source": {
-        "id": 7561,
+        "id": 7564,
         "player": 1,
         "slot": "SD_SLOT"
     },
-    "tempo": 98.78,
-    "title": "Stairway to heaven",
-    "year": 1971,
-    "ms": 1723305210313,
+    "tempo": 140.66,
+    "title": "Ace of Spades",
+    "year": 2006,
+    "ms": 1723308833746,
     "type": "track",
     "version": 1
 }

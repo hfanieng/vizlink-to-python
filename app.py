@@ -51,8 +51,9 @@ def run_vizlink():
                 data_type = inner_data.get("type")
                 if data_type == "sys":
                     current_data["sys"] = Sys.from_json(inner_data)
-                    # Hier wird die angepasste __str__-Methode verwendet
                     print(current_data["sys"])
+                elif data_type == "art":
+                    current_data["art"] = Art.from_json(inner_data)
                 elif data_type == "beat":
                     current_data["beat"] = Beat.from_json(inner_data)
                     print(current_data["beat"])

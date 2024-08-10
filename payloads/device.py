@@ -1,7 +1,10 @@
+'''importing the BasePayload class from the base module'''
+from .base import BasePayload
 '''Module to represent a device'''
-class Device:
+class Device (BasePayload):
     '''Device class to represent a device'''
     def __init__(self, active, name, player, ms, type_iterable, version):
+        super().__init__(ms)
         self.active = active
         self.name = name
         self.player = player
@@ -27,6 +30,7 @@ class Device:
 
     def to_dict(self):
         '''Returns a dictionary representation of the object'''
+        base_str = super().__str__()
         return {
             'active': self.active,
             'name': self.name,
