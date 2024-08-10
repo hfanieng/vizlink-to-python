@@ -8,12 +8,14 @@ import queue
 import subprocess
 import threading
 from flask import Flask, render_template, jsonify
+from payloads.art import Art
 from payloads.beat import Beat
+from payloads.error import Error
 from payloads.sys import Sys
-# from payloads.error import Error
 from payloads.device import Device
 from payloads.track import Track
 from payloads.structure import Structure
+
 
 app = Flask(__name__)
 
@@ -22,6 +24,8 @@ log.setLevel(logging.ERROR)
 
 data_queue = queue.Queue()
 current_data = {
+    "art": None,
+    "beat": None,
     "sys": None,
     "error": None,
     "device": None,
@@ -52,10 +56,12 @@ def run_vizlink():
                 elif data_type == "beat":
                     current_data["beat"] = Beat.from_json(inner_data)
                     print(current_data["beat"])
-                # elif data_type == "error":
-                #     current_data["error"] = Error(**inner_data)
+                elif data_type == "error":
+                    current_data["error"] = Error(**inner_data)
+                    print(current_data["error"])
                 elif data_type == "device":
                     current_data["device"] = Device.from_json(inner_data)
+                    print(current_data["device"])
                 elif data_type == "track":
                     current_data["track"] = Track.from_json(inner_data)
                     print(current_data["track"])
