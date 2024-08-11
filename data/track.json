@@ -1,23 +1,23 @@
 {
-    "album": "The Best of Mot\u00f6rhead",
-    "artist": "Mot\u00f6rhead",
+    "album": "Foreign Affair",
+    "artist": "Tina Turner",
     "cues": [
         {
             "comment": "",
-            "ms": 1206
+            "ms": 186
         }
     ],
-    "duration": 167000,
+    "duration": 262000,
     "player": 1,
     "source": {
-        "id": 7564,
+        "id": 7709,
         "player": 1,
         "slot": "SD_SLOT"
     },
-    "tempo": 140.66,
-    "title": "Ace of Spades",
-    "year": 2006,
-    "ms": 1723308833746,
+    "tempo": 139.17,
+    "title": "Foreign Affair",
+    "year": 1989,
+    "ms": 1723317062615,
     "type": "track",
     "version": 1
 }

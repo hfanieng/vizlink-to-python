@@ -33,8 +33,7 @@ current_data = {
     "structure": None
 }
 
-output_dir = "data"
-
+OUTPUT_PATH = "data"
 
 def run_vizlink():
     ''' Run the vizlink binary and parse its output '''
@@ -54,6 +53,7 @@ def run_vizlink():
                     print(current_data["sys"])
                 elif data_type == "art":
                     current_data["art"] = Art.from_json(inner_data)
+                    print(current_data["art"])
                 elif data_type == "beat":
                     current_data["beat"] = Beat.from_json(inner_data)
                     print(current_data["beat"])
@@ -90,7 +90,7 @@ def update_data():
             new_data = data_queue.get(timeout=1)
             for data_type, data in new_data.items():
                 if data:
-                    filename = os.path.join(output_dir, f"{data_type}.json")
+                    filename = os.path.join(OUTPUT_PATH, f"{data_type}.json")
                     with open(filename, 'w', encoding="utf-8") as json_file:
                         json.dump(data.to_dict(), json_file, indent=4)
         except queue.Empty:
