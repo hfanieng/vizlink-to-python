@@ -1,3 +1,5 @@
+''' imports the JSON file and saves the image as a JPG file '''
+
 import json
 import base64
 import os
@@ -11,7 +13,7 @@ output_path = None
 
 try:
     # Lade die JSON-Datei
-    with open('data/art.json') as f:
+    with open('data/art.json', encoding="utf-8") as f:
         data = json.load(f)
 
     # Extrahiere Bilddaten und Spielernummer aus dem JSON-Objekt
@@ -27,7 +29,7 @@ try:
 
     @app.route('/')
     def display_image():
-        # Erstelle HTML, um das Bild und die Spielernummer anzuzeigen
+        ''' shows the image in the browser '''
         html_content = f'''
         <html>
         <body>
@@ -40,15 +42,15 @@ try:
         return render_template_string(html_content)
 
 except Exception as e:
-    # Fehlerbehandlung: gibt eine Fehlermeldung aus
     error_message = f"Ein Fehler ist aufgetreten: {e}"
 
     @app.route('/')
     def display_error():
+        ''' shows an error message in the browser '''
         return render_template_string(f"<h1>{error_message}</h1>")
 
 finally:
     if output_path and os.path.exists(output_path):
-        print(f"Bild erfolgreich gespeichert unter: {output_path}")
+        print(f"Image successfully saved as: {output_path}")
     else:
         print("Das Bild konnte nicht gespeichert werden")
