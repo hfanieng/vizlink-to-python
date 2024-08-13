@@ -34,7 +34,6 @@ class Art(BasePayload):
             'type': self.type_iterable,
             'version': self.version,
         }
-    
     def save_player_image(self):
         '''Saves an image using the player's number in the filename'''
         try:
@@ -42,11 +41,9 @@ class Art(BasePayload):
             image_data = base64.b64decode(self.jpg)
             print("Opening image...")
             image = Image.open(BytesIO(image_data))
-    
             # Create the filename using the player number
             filename = f"{self.player}.jpg"
             output_path = f"data/{filename}"
-    
             print(f"Saving image as {output_path}...")
             # Save the image as JPEG
             image.save(output_path, 'JPEG')
