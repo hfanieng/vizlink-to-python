@@ -2,20 +2,20 @@
 marp: true
 ---
 
-# vizlink-to-python
+# Vizlink to Python
 
 ---
 
-## Project description
+## Project Description
 
-This project utilizes [Vizlink][1] to read data from the ProDJLink network, transmits the data as .json to a Python script, and will be working with standard DMX lighting software. The project is still in development and is not yet ready for production use.
+This project uses [Vizlink][1] to read data from the ProDJLink network, transmitting the data as a JSON file to a Python script, which works with standard DMX lighting software. The project is still in development and is not yet ready for production use.
 
-> __Disclaimer__: This project is not affiliated with AlphaTheta/Pioneer DJ Corp. or its related companies in any way and has been developed independently. Vizlink to Python is licensed under the [MIT license][license-link]. The maintainers of this project are not liable for any damages to your data, as this is an experimental project.  
->__Editor’s Warning__: Using any under-development tool like this should be tested very thoroughly before relying on it for your next big DJ set. There is also always a chance that Pioneer DJ could close the loopholes that allow this to work in a future firmware update to CDJs – so update with caution.
+> **Disclaimer:** This project is not affiliated with AlphaTheta/Pioneer DJ Corp. or its related companies in any way and has been developed independently. Vizlink to Python is licensed under the [MIT license][license-link]. The maintainers of this project are not liable for any damages to your data, as this is an experimental project.  
+> **Editor's Warning:** Any tool that is still under development should be tested thoroughly before relying on it for your next big DJ set. There is also a possibility that Pioneer DJ could close the loopholes that allow this to work in a future firmware update to CDJs – so update with caution.
 
 ---
 
-## Table of contents
+## Table of Contents
 
 1. Introduction
 2. Requirements
@@ -23,41 +23,56 @@ This project utilizes [Vizlink][1] to read data from the ProDJLink network, tran
 4. Usage
 5. Equipment
 
+---
+
 ## Introduction
 
-Inspired by a part in the great manual of Beat Link Trigger about [writing played songs in a textfile][2] i want to work with analyized data from Rekordbox with my played songs from the [Pioneer XDJ-XZ][3] in combination with Standard-DMX-Lighting-Software.
+Inspired by a section in the great manual of Beat Link Trigger about [writing played songs in a text file][2], I want to work with analyzed data from Rekordbox with my played songs from the [Pioneer XDJ-XZ][3] in combination with standard DMX lighting software.
 
-One further option is to show the playlist live on a Website
+Another option is to show the playlist live on a website.
+
+---
 
 ## Requirements
 
-- Full ProDJLink compatible Hardware
+- Fully ProDJLink compatible hardware
 - Vizlink
 - Python 3.x
 
+---
+
 ## Installation
 
-1. clone this repository: `git clone https://github.com/hfanieng/vizlink-to-python`
-2. install the Python dependencies:
-`pip install flask`
-`pip install json`  
-`pip install threading`
+1. Clone this repository: `git clone https://github.com/hfanieng/vizlink-to-python`
+2. Install the Python dependencies:
+
+```bash
+pip install flask
+pip install json  
+pip install threading
+```
+
+---
 
 ## Usage
 
-run the Python script: `python main.py`
+Run the Python script: `python main.py`
 
-## Equipment used for the project
+---
 
-All tests runs with the old but great [Pioneer XDJ-XZ][3] with ❤️ and 🤩 at my hometown [Hagen-Wehringhausen][4].![XDJ-XZ][5]
+## Equipment Used for the Project
+
+All tests were run with the reliable [Pioneer XDJ-XZ][3] with ❤️ and 🤩 in my hometown [Hagen-Wehringhausen][4].  
+![XDJ-XZ][5]
+
+---
 
 ## Structure
 
-This is a Python library for converting Data from a ProDJ-Link-Device via [Vizlink][1] to Python Objects.
+This is a Python library for converting data from a ProDJ-Link device via [Vizlink][1] into Python objects.
 
-```
+```plaintext
 vizlink-to-python/
-├── __init__.py
 ├── data/
 │   ├── beat.json
 │   ├── device.json
@@ -67,6 +82,7 @@ vizlink-to-python/
 │   ├── track.json
 ├── payloads/
 │   ├── __init__.py
+│   ├── art.py
 │   ├── beat.py
 │   ├── device.py
 │   ├── error.py
@@ -80,98 +96,196 @@ vizlink-to-python/
 ├── factory.py
 └── app.py
 ```
+---
 
-## UML Diagrams - WORK IN PROGRESS! Not final
+## Excamples
 
-```mermaid
-classDiagram
-class Device {
-        -active: bool
-        -player: int
-        -name: str
-        
-        -version: int
-        +to_dict(): dict
-    }
-    class Sys {
-        -payload: dict
-        -ms: int
-        -version: int
-        +to_dict(): dict
-    }
+### Device
 
-    class Error {
-        -payload: dict
-        -ms: int
-        -version: int
-        +to_dict(): dict
-    }
-
-    
-    class Track {
-        -payload: dict
-        -ms: int
-        -version: int
-        +to_dict(): dict
-    }
-
-    class Structure {
-        -payload: dict
-        -ms: int
-        -version: int
-        +to_dict(): dict
-    }
-
-    class Cue {
-        -comment: str
-        -ms: int
-    }
-
-    class Source {
-        -id: int
-        -player: int
-        -slot: str
-    }
-
-    Device "1" -- "0..*" Track : plays
-    Track "1" -- "1" Structure : has
-    Track "0..*" -- "1" Source : uses
-    Track "0..*" -- "0..*" Cue : contains
-
-    class Track {
-        -payload: dict
-        -ms: int
-        -version: int
-        +to_dict(): dict
-        -album: str
-        -artist: str
-        -duration: int
-        -media: str
-        -player: int
-        -tempo: float
-        -title: str
-        -year: int
-    }
-
-    class Structure {
-        -payload: dict
-        -ms: int
-        -version: int
-        +to_dict(): dict
-        -bank: str
-        -mood: str
-        -phrases: list
-        -player: int
-    }
-
-    class Phrase {
-        -beat: int
-        -beats: int
-        -kind: str
-    }
-
-    Structure "1" -- "0..*" Phrase : contains
+```json
+{
+    "active": true,
+    "name": "XDJ-XZ",
+    "player": 33,
+    "ms": 1723300683029,
+    "type": "device",
+    "version": 1
+}
 ```
+
+---
+
+### Track
+
+```json
+{
+    "album": "Smells Like Teen Spirit",
+    "artist": "Nirvana",
+    "cues": [
+        {
+            "comment": "",
+            "ms": 1266
+        }
+    ],
+    "duration": 280000,
+    "player": 1,
+    "source": {
+        "id": 7560,
+        "player": 1,
+        "slot": "SD_SLOT"
+    },
+    "tempo": 116.52,
+    "title": "Smells Like Teen Spirit",
+    "year": 1991,
+    "ms": 1723301236014,
+    "type": "track",
+    "version": 1
+}
+```
+
+---
+
+### Track-Structure
+
+```json
+{
+    "bank": "default",
+    "mood": "mid",
+    "phrases": [
+        {
+            "beat": 3,
+            "beats": 14,
+            "kind": "intro"
+        },
+        {
+            "beat": 17,
+            "beats": 20,
+            "kind": "verse_1"
+        },
+        {
+            "beat": 37,
+            "beats": 16,
+            "kind": "bridge"
+        },
+        {
+            "beat": 53,
+            "beats": 16,
+            "kind": "verse_2"
+        },
+        {
+            "beat": 69,
+            "beats": 32,
+            "kind": "verse_2"
+        },
+        {
+            "beat": 101,
+            "beats": 36,
+            "kind": "chorus"
+        },
+        {
+            "beat": 137,
+            "beats": 32,
+            "kind": "chorus"
+        },
+        {
+            "beat": 169,
+            "beats": 12,
+            "kind": "verse_1"
+        },
+        {
+            "beat": 181,
+            "beats": 16,
+            "kind": "verse_1"
+        },
+        {
+            "beat": 197,
+            "beats": 8,
+            "kind": "verse_2"
+        },
+        {
+            "beat": 205,
+            "beats": 8,
+            "kind": "bridge"
+        },
+        {
+            "beat": 213,
+            "beats": 32,
+            "kind": "verse_2"
+        },
+        {
+            "beat": 245,
+            "beats": 20,
+            "kind": "chorus"
+        },
+        {
+            "beat": 265,
+            "beats": 56,
+            "kind": "chorus"
+        },
+        {
+            "beat": 321,
+            "beats": 32,
+            "kind": "chorus"
+        },
+        {
+            "beat": 353,
+            "beats": 20,
+            "kind": "bridge"
+        },
+        {
+            "beat": 373,
+            "beats": 24,
+            "kind": "verse_3"
+        },
+        {
+            "beat": 397,
+            "beats": 12,
+            "kind": "chorus"
+        },
+        {
+            "beat": 409,
+            "beats": 20,
+            "kind": "chorus"
+        },
+        {
+            "beat": 429,
+            "beats": 44,
+            "kind": "chorus"
+        },
+        {
+            "beat": 473,
+            "beats": 40,
+            "kind": "chorus"
+        },
+        {
+            "beat": 513,
+            "beats": 18,
+            "kind": "outro"
+        }
+    ],
+    "player": 1,
+    "ms": 1723301236018,
+    "type": "structure",
+    "version": 1
+}
+```
+
+---
+
+### Beat
+
+```json
+{
+    "beat": 208,
+    "master": true,
+    "onair": null,
+    "ms": 1723301344416,
+    "type": "beat",
+    "version": 1
+}
+```
+
+---
 
 [1]:https://github.com/nzoschke/vizlink
 [2]:<https://blt-guide.deepsymmetry.org/beat-link-trigger/7.4.1/Matching.html#writing-a-playlist>
@@ -180,4 +294,3 @@ class Device {
 [5]:<https://www.pioneerdj.com/-/media/pioneerdj/images/products/all-in-one-system/xdj-xz/xdj-xz_prm_top.png?h=1316&w=1792&hash=CDDC51D731D7571112C6D6AB25B04626>
 [license-link]: https://github.com/hfanieng/vizlink-to-python/blob/main/LICENSE
 
-# vizlink-to-python

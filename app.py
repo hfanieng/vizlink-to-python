@@ -8,12 +8,14 @@ import queue
 import subprocess
 import threading
 from flask import Flask, render_template, jsonify
+from payloads.art import Art
 from payloads.beat import Beat
+from payloads.error import Error
 from payloads.sys import Sys
-# from payloads.error import Error
 from payloads.device import Device
 from payloads.track import Track
 from payloads.structure import Structure
+
 
 app = Flask(__name__)
 
@@ -22,6 +24,8 @@ log.setLevel(logging.ERROR)
 
 data_queue = queue.Queue()
 current_data = {
+    "art": None,
+    "beat": None,
     "sys": None,
     "error": None,
     "device": None,
@@ -29,8 +33,7 @@ current_data = {
     "structure": None
 }
 
-output_dir = "data"
-
+OUTPUT_PATH = "data"
 
 def run_vizlink():
     ''' Run the vizlink binary and parse its output '''
@@ -47,15 +50,19 @@ def run_vizlink():
                 data_type = inner_data.get("type")
                 if data_type == "sys":
                     current_data["sys"] = Sys.from_json(inner_data)
-                    # Hier wird die angepasste __str__-Methode verwendet
                     print(current_data["sys"])
+                elif data_type == "art":
+                    current_data["art"] = Art.from_json(inner_data)
+                    print(current_data["art"])
                 elif data_type == "beat":
                     current_data["beat"] = Beat.from_json(inner_data)
                     print(current_data["beat"])
-                # elif data_type == "error":
-                #     current_data["error"] = Error(**inner_data)
+                elif data_type == "error":
+                    current_data["error"] = Error(**inner_data)
+                    print(current_data["error"])
                 elif data_type == "device":
                     current_data["device"] = Device.from_json(inner_data)
+                    print(current_data["device"])
                 elif data_type == "track":
                     current_data["track"] = Track.from_json(inner_data)
                     print(current_data["track"])
@@ -83,7 +90,7 @@ def update_data():
             new_data = data_queue.get(timeout=1)
             for data_type, data in new_data.items():
                 if data:
-                    filename = os.path.join(output_dir, f"{data_type}.json")
+                    filename = os.path.join(OUTPUT_PATH, f"{data_type}.json")
                     with open(filename, 'w', encoding="utf-8") as json_file:
                         json.dump(data.to_dict(), json_file, indent=4)
         except queue.Empty:

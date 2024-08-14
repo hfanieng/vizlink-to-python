@@ -5,12 +5,12 @@ from .base import BasePayload
 class Sys(BasePayload):
     ''' Define the Sys class that inherits from BasePayload '''
 
-    def __init__(self, code, msg, ms, type, version):
+    def __init__(self, code, msg, ms, type_iterable, version):
         super().__init__(ms)
         self.code = code
         self.msg = msg
         self.ms = ms
-        self.type = type
+        self.type_iterable = type_iterable
         self.version = version
 
     @classmethod
@@ -20,9 +20,9 @@ class Sys(BasePayload):
         code = payload.get('code')
         msg = payload.get('msg')
         ms = data.get('ms')
-        type = data.get('type')
+        type_iterable = data.get('type')
         version = data.get('version')
-        return cls(code, msg, ms, type, version)
+        return cls(code, msg, ms, type_iterable, version)
 
     def to_dict(self):
         ''' Convert the Sys object to a dictionary'''
@@ -30,10 +30,14 @@ class Sys(BasePayload):
             'code': self.code,
             'msg': self.msg,
             'ms': self.ms,
-            'type': self.type,
+            'type': self.type_iterable,
             'version': self.version
         }
 
     def __str__(self):
         base_str = super().__str__()
-        return (f"{base_str}, Type:{self.type}, Code:{self.code}, Msg:{self.msg}, Version:{self.version})")
+        return (f'{base_str}, '
+                f'Type:{self.type_iterable},'
+                f'Code:{self.code},'
+                f'Msg:{self.msg},'
+                f'Version:{self.version})')
