@@ -36,9 +36,14 @@ class Beat (BasePayload):
 
     def __str__(self):
         base_str = super().__str__()
+<<<<<<< HEAD
+        return (f"{base_str}, Type:{self.type_iterable}, Beat:{self.beat}, Master:{self.master}, "
+                f"  Onair:{self.onair}, Version:{self.version})")
+=======
         return (f'{base_str}, '
                 f'Type:{self.type_iterable}, '
                 f'Beat:{self.beat}, '
                 f'Master:{self.master}, '
                 f'On Air:{self.onair}, '
                 f'Version:{self.version})')
+>>>>>>> f55fb9f258a0bfd66b0439098028b2e56e2b6783
