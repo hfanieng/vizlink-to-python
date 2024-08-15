@@ -7,33 +7,33 @@
     <title>Now Playing</title>
 </head>
 <body>
-    <div class="container" id="device-container">
-        <!-- Device 1 -->
-        <div class="device" id="device1">
-            <h1 class="device-title"></h1>
-            <h2 class="name" id="device1-name"></h2>
-            <p>Aktiv: <span id="device1-active"></span></p>
-            <p>Player: <span id="device1-player"></span></p>
-        </div>
-        <div class="artwork">
-            <img id="artwork1" src="{{ url_for('static', filename='data/1.jpg') }}" alt="Artwork 1">
-        </div>
-        <div class="player" id="player1">
+    <div class="container">
+        <!-- Column for Device 1 -->
+        <div class="device-column" id="device1-column">
+            <div class="device" id="device1">
+                <h1 class="device-title"></h1>
+                <h2 class="name" id="device1-name"></h2>
+                <p>Aktiv: <span id="device1-active"></span></p>
+                <p>Player: <span id="device1-player"></span></p>
+            </div>
+            <div class="artwork">
+                <img id="artwork1" src="{{ url_for('static', filename='data/1.jpg') }}" alt="Artwork 1">
+            </div>
             <div class="track" id="track1"></div>
             <div class="structure" id="structure1"></div>
         </div>
 
-        <!-- Device 2 -->
-        <div class="device" id="device2">
-            <h1 class="device-title"></h1>
-            <h2 class="name" id="device2-name"></h2>
-            <p>Aktiv: <span id="device2-active"></span></p>
-            <p>Player: <span id="device2-player"></span></p>
-        </div>
-        <div class="artwork">
-            <img id="artwork2" src="{{ url_for('static', filename='data/2.jpg') }}" alt="Artwork 2">
-        </div>
-        <div class="player" id="player2">
+        <!-- Column for Device 2 -->
+        <div class="device-column" id="device2-column">
+            <div class="device" id="device2">
+                <h1 class="device-title"></h1>
+                <h2 class="name" id="device2-name"></h2>
+                <p>Aktiv: <span id="device2-active"></span></p>
+                <p>Player: <span id="device2-player"></span></p>
+            </div>
+            <div class="artwork">
+                <img id="artwork2" src="{{ url_for('static', filename='data/2.jpg') }}" alt="Artwork 2">
+            </div>
             <div class="track" id="track2"></div>
             <div class="structure" id="structure2"></div>
         </div>
@@ -73,17 +73,28 @@
         }
 
         function displayDevices(data) {
-            if (data.devices) {
-                data.devices.forEach((device, index) => {
-                    const deviceInfo = `
-                        <p>Aktiv: ${device.active}</p>
-                        <p>Name: ${device.name}</p>
-                        <p>Player: ${device.player}</p>
-                    `;
-                    document.getElementById(`device${index + 1}-name`).innerHTML = deviceInfo;
-                });
-            }
+    if (data.devices && data.devices.length > 0) {
+        // Für das erste Gerät (Index 0)
+        if (data.devices[0]) {
+            const device1Info = `
+                <p>Aktiv: ${data.devices[0].active}</p>
+                <p>Name: ${data.devices[0].name}</p>
+                <p>Player: ${data.devices[0].player}</p>
+            `;
+            document.getElementById('device1-name').innerHTML = device1Info;
         }
+
+        // Für das zweite Gerät (Index 1)
+        if (data.devices[1]) {
+            const device2Info = `
+                <p>Aktiv: ${data.devices[1].active}</p>
+                <p>Name: ${data.devices[1].name}</p>
+                <p>Player: ${data.devices[1].player}</p>
+            `;
+            document.getElementById('device2-name').innerHTML = device2Info;
+        }
+    }
+}
 
         function displayStructure(data) {
             if (data.track && data.track.structure) {

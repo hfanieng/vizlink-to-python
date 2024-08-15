@@ -4,80 +4,80 @@
     "cues": [
         {
             "comment": "Cue 1",
-            "ms": 260
+            "ms": 326
         },
         {
             "comment": "Cue 1",
-            "ms": 260
+            "ms": 326
         },
         {
             "comment": "Cue 2",
-            "ms": 33646
+            "ms": 16326
         },
         {
             "comment": "Cue 2",
-            "ms": 33646
+            "ms": 16326
         },
         {
             "comment": "Cue 3",
-            "ms": 83733
+            "ms": 48326
         },
         {
             "comment": "Cue 3",
-            "ms": 83733
+            "ms": 48326
         },
         {
             "comment": "Cue 4",
-            "ms": 100433
+            "ms": 80326
         },
         {
             "comment": "Cue 4",
-            "ms": 100433
+            "ms": 80326
         },
         {
             "comment": "Cue 5",
-            "ms": 133820
+            "ms": 96326
         },
         {
             "comment": "Cue 5",
-            "ms": 133820
+            "ms": 96326
         },
         {
             "comment": "Cue 6",
-            "ms": 150520
+            "ms": 160326
         },
         {
             "comment": "Cue 6",
-            "ms": 150520
+            "ms": 160326
         },
         {
             "comment": "Cue 7",
-            "ms": 183906
+            "ms": 176326
         },
         {
             "comment": "Cue 7",
-            "ms": 183906
+            "ms": 176326
         },
         {
             "comment": "Cue 8",
-            "ms": 200606
+            "ms": 192326
         },
         {
             "comment": "Cue 8",
-            "ms": 200606
+            "ms": 192326
         }
     ],
-    "duration": 238000,
+    "duration": 237000,
     "player": 2,
     "source": {
-        "id": 101,
+        "id": 103,
         "player": 1,
         "slot": "USB_SLOT"
     },
-    "tempo": 115.0,
-    "title": "Ghosts Again",
+    "tempo": 120.0,
+    "title": "My Favourite Stranger",
     "year": 2023,
-    "ms": 1723734103785,
+    "ms": 1723738974908,
     "type": "track",
     "version": 1
 }

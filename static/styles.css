@@ -8,8 +8,55 @@ body {
 
 .container {
     display: flex;
-    justify-content: space-around;
-    /* Verteilung des Platzes zwischen Playern */
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.device-column {
+    flex: 1 1 45%;
+    margin: 10px;
+    border: 1px solid #ccc;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #1e1e1e;
+    border-radius: 8px;
+}
+
+.artwork img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.track, .structure {
+    margin-top: 10px;
+}
+
+h1, h2 {
+    margin: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #333333;
+}
+
+h3 {
+    margin-top: 20px;
+}
+
+p {
+    margin: 5px 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 5px 0;
+    padding: 5px;
+    background-color: #292929;
+    border-radius: 4px;
 }
 
 .player {
