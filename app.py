@@ -1,6 +1,7 @@
 '''
 this is the main file of the project. It starts the Flask server and runs the vizlink binary.
 '''
+import base64
 import json
 import logging
 import os
@@ -54,6 +55,7 @@ def run_vizlink():
                 elif data_type == "art":
                     current_data["art"] = Art.from_json(inner_data)
                     print(current_data["art"])
+                    update_artwork()
                 elif data_type == "beat":
                     current_data["beat"] = Beat.from_json(inner_data)
                     print(current_data["beat"])
@@ -96,6 +98,23 @@ def update_data():
         except queue.Empty:
             continue
 
+def update_artwork():
+    ''' Write the current artwork to disk '''
+    while True:
+        try:
+            with open("data/art.json", "r", encoding="utf-8") as json_file:
+                art_data = json.load(json_file)
+
+
+            player_number = art_data["player"]
+            jpg_data = art_data["jpg"]
+
+            filename = os.path.join(OUTPUT_PATH, f"{player_number}.jpg")
+            
+            with open(filename, 'wb') as jpg_file:
+                jpg_file.write(base64.b64decode(jpg_data))
+        except queue.Empty:
+            continue
 
 @app.route('/')
 def index():

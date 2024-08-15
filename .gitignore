@@ -1,2 +1,4 @@
 .DS_Store
 .DS_Store
+payloads/__pycache__/art.cpython-312.pyc
+tests/octet2image.py

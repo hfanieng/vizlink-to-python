@@ -1,23 +1,83 @@
 {
-    "album": "Foreign Affair",
-    "artist": "Tina Turner",
+    "album": "Memento Mori",
+    "artist": "Depeche Mode",
     "cues": [
         {
-            "comment": "",
-            "ms": 186
+            "comment": "Cue 1",
+            "ms": 260
+        },
+        {
+            "comment": "Cue 1",
+            "ms": 260
+        },
+        {
+            "comment": "Cue 2",
+            "ms": 33646
+        },
+        {
+            "comment": "Cue 2",
+            "ms": 33646
+        },
+        {
+            "comment": "Cue 3",
+            "ms": 83733
+        },
+        {
+            "comment": "Cue 3",
+            "ms": 83733
+        },
+        {
+            "comment": "Cue 4",
+            "ms": 100433
+        },
+        {
+            "comment": "Cue 4",
+            "ms": 100433
+        },
+        {
+            "comment": "Cue 5",
+            "ms": 133820
+        },
+        {
+            "comment": "Cue 5",
+            "ms": 133820
+        },
+        {
+            "comment": "Cue 6",
+            "ms": 150520
+        },
+        {
+            "comment": "Cue 6",
+            "ms": 150520
+        },
+        {
+            "comment": "Cue 7",
+            "ms": 183906
+        },
+        {
+            "comment": "Cue 7",
+            "ms": 183906
+        },
+        {
+            "comment": "Cue 8",
+            "ms": 200606
+        },
+        {
+            "comment": "Cue 8",
+            "ms": 200606
         }
     ],
-    "duration": 262000,
-    "player": 1,
+    "duration": 238000,
+    "player": 2,
     "source": {
-        "id": 7709,
+        "id": 101,
         "player": 1,
-        "slot": "SD_SLOT"
+        "slot": "USB_SLOT"
     },
-    "tempo": 139.17,
-    "title": "Foreign Affair",
-    "year": 1989,
-    "ms": 1723317062615,
+    "tempo": 115.0,
+    "title": "Ghosts Again",
+    "year": 2023,
+    "ms": 1723734103785,
     "type": "track",
     "version": 1
 }
