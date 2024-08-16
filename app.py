@@ -54,8 +54,10 @@ def run_vizlink():
                     print(current_data["sys"])
                 elif data_type == "art":
                     current_data["art"] = Art.from_json(inner_data)
-                    print(current_data["art"])
-                    update_artwork()
+                    player = current_data["art"].player  # Annahme: Das Art-Objekt hat ein 'player'-Attribut
+                    jpg_data = current_data["art"].jpg_data 
+                    # print(current_data["art"])
+                    update_artwork(player, jpg_data)
                 elif data_type == "beat":
                     current_data["beat"] = Beat.from_json(inner_data)
                     print(current_data["beat"])
@@ -98,23 +100,29 @@ def update_data():
         except queue.Empty:
             continue
 
-def update_artwork():
+def update_artwork(player, jpg_data):
     ''' Write the current artwork to disk '''
-    while True:
-        try:
-            with open("data/art.json", "r", encoding="utf-8") as json_file:
-                art_data = json.load(json_file)
-
-
-            player_number = art_data["player"]
-            jpg_data = art_data["jpg"]
-
-            filename = os.path.join(OUTPUT_PATH, f"{player_number}.jpg")
-            
-            with open(filename, 'wb') as jpg_file:
-                jpg_file.write(base64.b64decode(jpg_data))
-        except queue.Empty:
-            continue
+    
+    try:
+        # decode the base64 encoded image data
+        image_data = base64.b64decode(jpg_data)
+        
+        # define the path to the image file
+        image_path = f'data/{player}.jpg'
+        
+        # write the image data to the file
+        with open(image_path, 'wb') as image_file:
+            image_file.write(image_data)
+        
+            logging.info(f"Artwork für Player {player} erfolgreich aktualisiert.")
+    
+    except (base64.binascii.Error, IOError) as e:
+        # error handling for base64 decoding and file writing
+        logging.error(f"Fehler beim Aktualisieren des Artworks für Player {player}: {str(e)}")
+        
+    except Exception as e:
+        # error handling for unexpected errors
+        logging.error(f"Ein unerwarteter Fehler ist aufgetreten: {str(e)}")
 
 @app.route('/')
 def index():
