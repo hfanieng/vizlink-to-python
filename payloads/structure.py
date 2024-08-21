@@ -40,7 +40,7 @@ class Structure(BasePayload):
         base_str = super().__str__()
         return (f'{base_str}, '
                 f'Type:{self.type_iterable}, '
-                f' Bank:{self.bank}, '
+                f'Bank:{self.bank}, '
                 f'Mood:{self.mood}, '
                 f'Phrases:{self.phrases}, '
                 f'Player:{self.player}, '
