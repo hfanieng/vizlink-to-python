@@ -1,83 +1,18 @@
 {
-    "album": "Memento Mori",
-    "artist": "Depeche Mode",
-    "cues": [
-        {
-            "comment": "Cue 1",
-            "ms": 326
-        },
-        {
-            "comment": "Cue 1",
-            "ms": 326
-        },
-        {
-            "comment": "Cue 2",
-            "ms": 16326
-        },
-        {
-            "comment": "Cue 2",
-            "ms": 16326
-        },
-        {
-            "comment": "Cue 3",
-            "ms": 48326
-        },
-        {
-            "comment": "Cue 3",
-            "ms": 48326
-        },
-        {
-            "comment": "Cue 4",
-            "ms": 80326
-        },
-        {
-            "comment": "Cue 4",
-            "ms": 80326
-        },
-        {
-            "comment": "Cue 5",
-            "ms": 96326
-        },
-        {
-            "comment": "Cue 5",
-            "ms": 96326
-        },
-        {
-            "comment": "Cue 6",
-            "ms": 160326
-        },
-        {
-            "comment": "Cue 6",
-            "ms": 160326
-        },
-        {
-            "comment": "Cue 7",
-            "ms": 176326
-        },
-        {
-            "comment": "Cue 7",
-            "ms": 176326
-        },
-        {
-            "comment": "Cue 8",
-            "ms": 192326
-        },
-        {
-            "comment": "Cue 8",
-            "ms": 192326
-        }
-    ],
-    "duration": 237000,
-    "player": 2,
+    "album": "Jolly Good Fellas - Best of Broilers 1994-2024",
+    "artist": "Broilers",
+    "cues": [],
+    "duration": 206000,
+    "player": 1,
     "source": {
-        "id": 103,
+        "id": 7768,
         "player": 1,
-        "slot": "USB_SLOT"
+        "slot": "SD_SLOT"
     },
-    "tempo": 120.0,
-    "title": "My Favourite Stranger",
-    "year": 2023,
-    "ms": 1723739976533,
+    "tempo": 88.5,
+    "title": "Harter Weg (Go!)",
+    "year": 2024,
+    "ms": 1725129914965,
     "type": "track",
     "version": 1
 }

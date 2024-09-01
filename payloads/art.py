@@ -18,12 +18,12 @@ class Art(BasePayload):
     def from_json(cls, data):
         '''Creates an instance of the class from a JSON object'''
         payload = data.get('payload', {})
-        jpg = payload.get('jpg')
+        jpg_data = payload.get('jpg')
         player = payload.get('player')
         ms = data.get('ms')
         type_iterable = data.get('type')
         version = data.get('version')
-        return cls(jpg, player, ms, type_iterable, version)
+        return cls(jpg_data, player, ms, type_iterable, version)
 
     def to_dict(self):
         '''Returns a dictionary representation of the object'''
@@ -56,4 +56,4 @@ class Art(BasePayload):
         return (f'{base_str}: '
                 f'type:{self.type_iterable}, '
                 f'player:{self.player}, '
-                f'jpg:{self.jpg[:10]}...')
+                f'jpg_data:{self.jpg[:10]}...')

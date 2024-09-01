@@ -4,117 +4,77 @@
     "phrases": [
         {
             "beat": 1,
-            "beats": 1,
+            "beats": 4,
             "kind": "intro"
         },
         {
-            "beat": 2,
-            "beats": 31,
-            "kind": "intro"
-        },
-        {
-            "beat": 33,
-            "beats": 16,
-            "kind": "verse_1"
-        },
-        {
-            "beat": 49,
-            "beats": 16,
-            "kind": "bridge"
-        },
-        {
-            "beat": 65,
-            "beats": 32,
-            "kind": "verse_2"
-        },
-        {
-            "beat": 97,
-            "beats": 32,
-            "kind": "verse_2"
-        },
-        {
-            "beat": 129,
-            "beats": 24,
-            "kind": "verse_2"
-        },
-        {
-            "beat": 153,
+            "beat": 5,
             "beats": 8,
-            "kind": "bridge"
-        },
-        {
-            "beat": 161,
-            "beats": 32,
             "kind": "chorus"
         },
         {
-            "beat": 193,
-            "beats": 32,
+            "beat": 13,
+            "beats": 16,
+            "kind": "chorus"
+        },
+        {
+            "beat": 29,
+            "beats": 48,
+            "kind": "verse_1"
+        },
+        {
+            "beat": 77,
+            "beats": 16,
             "kind": "verse_2"
         },
         {
-            "beat": 225,
-            "beats": 8,
-            "kind": "verse_2"
-        },
-        {
-            "beat": 233,
+            "beat": 93,
             "beats": 20,
             "kind": "verse_3"
         },
         {
-            "beat": 253,
-            "beats": 12,
+            "beat": 113,
+            "beats": 36,
             "kind": "chorus"
         },
         {
-            "beat": 265,
-            "beats": 32,
-            "kind": "chorus"
+            "beat": 149,
+            "beats": 8,
+            "kind": "verse_1"
         },
         {
-            "beat": 297,
+            "beat": 157,
             "beats": 24,
-            "kind": "verse_3"
-        },
-        {
-            "beat": 321,
-            "beats": 16,
             "kind": "verse_4"
         },
         {
-            "beat": 337,
-            "beats": 16,
+            "beat": 181,
+            "beats": 28,
             "kind": "verse_5"
         },
         {
-            "beat": 353,
-            "beats": 16,
+            "beat": 209,
+            "beats": 48,
             "kind": "chorus"
         },
         {
-            "beat": 369,
+            "beat": 257,
             "beats": 8,
             "kind": "chorus"
         },
         {
-            "beat": 377,
-            "beats": 40,
+            "beat": 265,
+            "beats": 12,
             "kind": "chorus"
         },
         {
-            "beat": 417,
-            "beats": 32,
-            "kind": "bridge"
-        },
-        {
-            "beat": 449,
-            "beats": 14,
-            "kind": "outro"
+            "beat": 277,
+            "beats": 13,
+            "kind": "chorus"
         }
     ],
-    "player": 2,
-    "ms": 1723739976534,
+    "player": 1,
+    "ms": 1725129914967,
     "type": "structure",
     "version": 1
 }
