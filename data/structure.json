@@ -4,77 +4,152 @@
     "phrases": [
         {
             "beat": 1,
-            "beats": 4,
+            "beats": 10,
             "kind": "intro"
         },
         {
-            "beat": 5,
+            "beat": 11,
             "beats": 8,
-            "kind": "chorus"
-        },
-        {
-            "beat": 13,
-            "beats": 16,
-            "kind": "chorus"
-        },
-        {
-            "beat": 29,
-            "beats": 48,
             "kind": "verse_1"
         },
         {
-            "beat": 77,
-            "beats": 16,
+            "beat": 19,
+            "beats": 20,
             "kind": "verse_2"
         },
         {
-            "beat": 93,
+            "beat": 39,
+            "beats": 28,
+            "kind": "verse_2"
+        },
+        {
+            "beat": 67,
             "beats": 20,
             "kind": "verse_3"
         },
         {
-            "beat": 113,
-            "beats": 36,
-            "kind": "chorus"
+            "beat": 87,
+            "beats": 12,
+            "kind": "verse_3"
         },
         {
-            "beat": 149,
-            "beats": 8,
-            "kind": "verse_1"
+            "beat": 99,
+            "beats": 64,
+            "kind": "verse_3"
         },
         {
-            "beat": 157,
-            "beats": 24,
-            "kind": "verse_4"
-        },
-        {
-            "beat": 181,
-            "beats": 28,
-            "kind": "verse_5"
-        },
-        {
-            "beat": 209,
-            "beats": 48,
-            "kind": "chorus"
-        },
-        {
-            "beat": 257,
+            "beat": 163,
             "beats": 8,
             "kind": "chorus"
         },
         {
-            "beat": 265,
+            "beat": 171,
+            "beats": 56,
+            "kind": "chorus"
+        },
+        {
+            "beat": 227,
+            "beats": 40,
+            "kind": "chorus"
+        },
+        {
+            "beat": 267,
+            "beats": 8,
+            "kind": "chorus"
+        },
+        {
+            "beat": 275,
             "beats": 12,
             "kind": "chorus"
         },
         {
-            "beat": 277,
-            "beats": 13,
+            "beat": 287,
+            "beats": 8,
+            "kind": "chorus"
+        },
+        {
+            "beat": 295,
+            "beats": 40,
+            "kind": "chorus"
+        },
+        {
+            "beat": 335,
+            "beats": 12,
+            "kind": "chorus"
+        },
+        {
+            "beat": 347,
+            "beats": 8,
+            "kind": "chorus"
+        },
+        {
+            "beat": 355,
+            "beats": 12,
+            "kind": "verse_3"
+        },
+        {
+            "beat": 367,
+            "beats": 12,
+            "kind": "chorus"
+        },
+        {
+            "beat": 379,
+            "beats": 36,
+            "kind": "chorus"
+        },
+        {
+            "beat": 415,
+            "beats": 12,
+            "kind": "verse_4"
+        },
+        {
+            "beat": 427,
+            "beats": 20,
+            "kind": "verse_5"
+        },
+        {
+            "beat": 447,
+            "beats": 12,
+            "kind": "verse_6"
+        },
+        {
+            "beat": 459,
+            "beats": 60,
+            "kind": "verse_1"
+        },
+        {
+            "beat": 519,
+            "beats": 44,
+            "kind": "verse_2"
+        },
+        {
+            "beat": 563,
+            "beats": 20,
+            "kind": "verse_3"
+        },
+        {
+            "beat": 583,
+            "beats": 16,
+            "kind": "chorus"
+        },
+        {
+            "beat": 599,
+            "beats": 28,
+            "kind": "chorus"
+        },
+        {
+            "beat": 627,
+            "beats": 20,
+            "kind": "chorus"
+        },
+        {
+            "beat": 647,
+            "beats": 16,
             "kind": "chorus"
         }
     ],
     "player": 1,
-    "ms": 1725129914967,
+    "ms": 1725728557981,
     "type": "structure",
     "version": 1
 }

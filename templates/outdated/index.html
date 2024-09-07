@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Now Playing</title>
+</head>
+<body>
+    <div class="container">
+        <!-- Column for Device 1 -->
+        <div class="device-column" id="device1-column">
+            <div class="device" id="device1">
+                <h1 class="device-title"></h1>
+                <h2 class="name" id="device1-name"></h2>
+                <p>Aktiv: <span id="device1-active"></span></p>
+                <p>Player: <span id="device1-player"></span></p>
+            </div>
+            <div class="artwork">
+                <img id="artwork1" src="{{ url_for('static', filename='data/1.jpg') }}" alt="Artwork 1">
+            </div>
+            <div class="track" id="track1"></div>
+            <div class="structure" id="structure1"></div>
+        </div>
+
+        <!-- Column for Device 2 -->
+        <div class="device-column" id="device2-column">
+            <div class="device" id="device2">
+                <h1 class="device-title"></h1>
+                <h2 class="name" id="device2-name"></h2>
+                <p>Aktiv: <span id="device2-active"></span></p>
+                <p>Player: <span id="device2-player"></span></p>
+            </div>
+            <div class="artwork">
+                <img id="artwork2" src="{{ url_for('static', filename='data/2.jpg') }}" alt="Artwork 2">
+            </div>
+            <div class="track" id="track2"></div>
+            <div class="structure" id="structure2"></div>
+        </div>
+    </div>
+
+    <script>
+        async function fetchData() {
+            try {
+                const response = await fetch('/data');
+                const data = await response.json();
+                displayTracks(data);
+                displayDevices(data);
+                displayStructure(data);
+            } catch (error) {
+                console.error('Fehler beim Abrufen der Daten:', error);
+                document.getElementById('device-container').innerHTML = '<p>Fehler beim Laden der Daten.</p>';
+            }
+        }
+
+        function displayTracks(data) {
+            if (data.track) {
+                const trackInfo = `
+                    <p>Album: ${data.track.album}</p>
+                    <p>Artist: ${data.track.artist}</p>
+                    <p>Cues: ${JSON.stringify(data.track.cues)}</p>
+                    <p>Dauer: ${data.track.duration} ms</p>
+                    <p>Tempo: ${data.track.tempo} BPM</p>
+                    <p>Titel: ${data.track.title}</p>
+                    <p>Jahr: ${data.track.year}</p>
+                `;
+                if (data.track.player === 1) {
+                    document.getElementById('track1').innerHTML = trackInfo;
+                } else if (data.track.player === 2) {
+                    document.getElementById('track2').innerHTML = trackInfo;
+                }
+            }
+        }
+
+        function displayDevices(data) {
+    if (data.devices && data.devices.length > 0) {
+        // Für das erste Gerät (Index 0)
+        if (data.devices[0]) {
+            const device1Info = `
+                <p>Aktiv: ${data.devices[0].active}</p>
+                <p>Name: ${data.devices[0].name}</p>
+                <p>Player: ${data.devices[0].player}</p>
+            `;
+            document.getElementById('device1-name').innerHTML = device1Info;
+        }
+
+        // Für das zweite Gerät (Index 1)
+        if (data.devices[1]) {
+            const device2Info = `
+                <p>Aktiv: ${data.devices[1].active}</p>
+                <p>Name: ${data.devices[1].name}</p>
+                <p>Player: ${data.devices[1].player}</p>
+            `;
+            document.getElementById('device2-name').innerHTML = device2Info;
+        }
+    }
+}
+
+        function displayStructure(data) {
+            if (data.track && data.track.structure) {
+                const phrases = data.track.structure.phrases;
+                let structureInfo = '<h3>Struktur:</h3><ul>';
+
+                phrases.forEach(phrase => {
+                    structureInfo += `
+                        <li>
+                            <strong>Beat:</strong> ${phrase.beat}, 
+                            <strong>Beats:</strong> ${phrase.beats}, 
+                            <strong>Art:</strong> ${phrase.kind}
+                        </li>
+                    `;
+                });
+
+                structureInfo += '</ul>';
+
+                if (data.track.player === 1) {
+                    document.getElementById('structure1').innerHTML = structureInfo;
+                } else if (data.track.player === 2) {
+                    document.getElementById('structure2').innerHTML = structureInfo;
+                }
+            }
+        }
+
+        function startFetching() {
+            fetchData();
+            setTimeout(startFetching, 2000);
+        }
+
+        startFetching(); // Startet das Abrufen der Daten
+    </script>
+</body>
+</html>

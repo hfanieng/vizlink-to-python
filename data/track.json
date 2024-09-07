@@ -1,18 +1,23 @@
 {
-    "album": "Jolly Good Fellas - Best of Broilers 1994-2024",
-    "artist": "Broilers",
-    "cues": [],
-    "duration": 206000,
+    "album": "Herzeleid (XXV Anniversary Edition \u2013 Remastered)",
+    "artist": "Rammstein",
+    "cues": [
+        {
+            "comment": "",
+            "ms": 793
+        }
+    ],
+    "duration": 315000,
     "player": 1,
     "source": {
-        "id": 7768,
+        "id": 7216,
         "player": 1,
         "slot": "SD_SLOT"
     },
-    "tempo": 88.5,
-    "title": "Harter Weg (Go!)",
-    "year": 2024,
-    "ms": 1725129914965,
+    "tempo": 129.92,
+    "title": "Wollt ihr das Bett in Flammen sehen",
+    "year": 1995,
+    "ms": 1725728557979,
     "type": "track",
     "version": 1
 }

@@ -1,19 +1,20 @@
 '''
 this is the main file of the project. It starts the Flask server and runs the vizlink binary.
 '''
-import base64
+#import base64
 import json
 import logging
 import os
 import queue
 import subprocess
 import threading
-from flask import Flask, render_template, jsonify
-from payloads.art import Art
+from flask import Flask, render_template
+# from payloads.art import Art
 from payloads.beat import Beat
 from payloads.error import Error
 from payloads.sys import Sys
 from payloads.device import Device
+from payloads.art import Art
 from payloads.track import Track
 from payloads.structure import Structure
 
@@ -52,12 +53,12 @@ def run_vizlink():
                 if data_type == "sys":
                     current_data["sys"] = Sys.from_json(inner_data)
                     print(current_data["sys"])
-                elif data_type == "art":
-                    current_data["art"] = Art.from_json(inner_data)
-                    player = current_data["art"].player  # Annahme: Das Art-Objekt hat ein 'player'-Attribut
-                    jpg_data = current_data["art"].jpg_data 
-                    # print(current_data["art"])
-                    update_artwork(player, jpg_data)
+                #elif data_type == "art":
+                #    current_data["art"] = Art.from_json(inner_data)
+                #    player = current_data["art"].player  # Annahme: Das Art-Objekt hat ein 'player'-Attribut
+                #    jpg_data = current_data["art"].jpg_data 
+                #    print(current_data["art"])
+                #    update_artwork(player, jpg_data)
                 elif data_type == "beat":
                     current_data["beat"] = Beat.from_json(inner_data)
                     print(current_data["beat"])
@@ -75,15 +76,15 @@ def run_vizlink():
                     print(current_data["structure"])
                 data_queue.put(current_data)
             except json.JSONDecodeError as e:
-                print(f"Fehler beim Dekodieren der JSON-Ausgabe: {e}")
+                print(f"Error decoding JSON output: {e}")
         process.stdout.close()
         process.wait()
     except subprocess.CalledProcessError as e:
-        print(f"Fehler beim Ausführen von vizlink: {e}")
+        print(f"Error executing vizlink: {e}")
     except Exception as e:
-        print(f"Ein unerwarteter Fehler ist aufgetreten: {e}")
+        print(f"An unexpected error has occurred: {e}")
     finally:
-        print("Der vizlink-Prozess wurde beendet.")
+        print("The vizlink process was terminated.")
 
 
 def update_data():
@@ -100,43 +101,20 @@ def update_data():
         except queue.Empty:
             continue
 
-def update_artwork(player, jpg_data):
-    ''' Write the current artwork to disk '''
-    
-    try:
-        # decode the base64 encoded image data
-        image_data = base64.b64decode(jpg_data)
-        
-        # define the path to the image file
-        image_path = f'data/{player}.jpg'
-        
-        # write the image data to the file
-        with open(image_path, 'wb') as image_file:
-            image_file.write(image_data)
-        
-            logging.info(f"Artwork für Player {player} erfolgreich aktualisiert.")
-    
-    except (base64.binascii.Error, IOError) as e:
-        # error handling for base64 decoding and file writing
-        logging.error(f"Fehler beim Aktualisieren des Artworks für Player {player}: {str(e)}")
-        
-    except Exception as e:
-        # error handling for unexpected errors
-        logging.error(f"Ein unerwarteter Fehler ist aufgetreten: {str(e)}")
-
 @app.route('/')
 def index():
-    ''' Render the index.html template '''
-    return render_template('index.html')
-
-
-@app.route('/data')
-def data():
-    ''' Return the current data as JSON '''
-    return jsonify({k: v.to_dict() if v else None for k, v in current_data.items()})
-
+    # Erstellen von zwei Device-Instanzen für Player 1 und Player 2
+    player_1_device = Device(type_iterable="Type1", player=1, name="Player One", active=True, ms=100, version="1.0")
+    player_2_device = Device(type_iterable="Type2", player=2, name="Player Two", active=False, ms=150, version="1.1")
+    
+    # Abrufen der Dictionary-Darstellung der Player-Daten
+    player_1_data = player_1_device.to_dict()
+    player_2_data = player_2_device.to_dict()
+    
+    # Übergabe der Daten an das Template
+    return render_template('index.html', player_1=player_1_data, player_2=player_2_data)
 
 if __name__ == '__main__':
     threading.Thread(target=run_vizlink, daemon=True).start()
     threading.Thread(target=update_data, daemon=True).start()
-    app.run(debug=False)
+    app.run(debug=True)
